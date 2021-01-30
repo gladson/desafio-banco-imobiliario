@@ -2,25 +2,28 @@
 
 Considere o seguinte jogo hipotético muito semelhante a Banco Imobiliário, onde várias de suas mecânicas
 foram simplificadas. Numa partida desse jogo, os jogadores se alteram em rodadas, numa ordem definida
-aleatoriamente no começo da partida. Os jogadores sempre começam uma partida com saldo de 300 para
+aleatoriamente no começo da partida. 
+
+Os jogadores sempre começam uma partida com saldo de 300 para
 cada um.
 
 Nesse jogo, o tabuleiro é composto por 20 propriedades em sequência. Cada propriedade tem um custo de
 venda, um valor de aluguel, um proprietário caso já estejam compradas, e seguem uma determinada ordem no
-tabuleiro. Não é possível construir hotéis e nenhuma outra melhoria sobre as propriedades do tabuleiro, por
-simplicidade do problema.
+tabuleiro. Não é possível construir hotéis e nenhuma outra melhoria sobre as propriedades do tabuleiro, por simplicidade do problema.
 
 No começo da sua vez, o jogador joga um dado equiprovável de 6 faces que determina quantas espaços no
 tabuleiro o jogador vai andar.
 
 Ao cair em uma propriedade sem proprietário, o jogador pode escolher entre comprar ou não a
 propriedade. Esse é a única forma pela qual uma propriedade pode ser comprada.
+
 Ao cair em uma propriedade que tem proprietário, ele deve pagar ao proprietário o valor do aluguel da
 propriedade.
 
 Ao completar uma volta no tabuleiro, o jogador ganha 100 de saldo.
 
 Jogadores só podem comprar propriedades caso ela não tenha dono e o jogador tenha o dinheiro da venda.
+
 Ao comprar uma propriedade, o jogador perde o dinheiro e ganha a posse da propriedade.
 
 Cada um dos jogadores tem uma implementação de comportamento diferente, que dita as ações que eles
