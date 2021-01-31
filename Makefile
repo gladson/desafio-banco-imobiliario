@@ -14,6 +14,7 @@ help:
 	@echo  "    run_test""					""Rodar teste de cobertura de codigo e pytest com modular fixture"
 	@echo  "    run_test_to_html""				""Exportar teste de cobertura de codigo em uma pasta 'htmlcov'"
 
+
 pkg_req_del:
 	rm -rf requirements.txt
 
