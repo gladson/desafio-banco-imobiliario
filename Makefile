@@ -30,6 +30,15 @@ pkg_add_dev:
 pkg_add_prod:
 	poetry add ${pkg}
 
+pkg_search:
+	poetry search ${pkg}
+
+pkg_list_env:
+	poetry env list
+
+pkg_info_env:
+	poetry env info
+
 run_test:
 	rm -rf ./.coverage
 	pytest --cov-append --cov=banco_imobiliario tests/
