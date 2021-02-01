@@ -110,4 +110,101 @@ Qual a porcentagem de vitórias por comportamento dos jogadores
   *   randomer: 5%
 make[1]: Saindo do diretório '/desafio-banco-imobiliario/src'
 ```
+### 4º Rodar os testes
+> comando
+```shell
+❯ make run_test
+```
+> resultado
+```shell
+make -C src run_main_test
+make[1]: Entrando no diretório '/desafio-banco-imobiliario/src'
+flake8 banco_imobiliario/*.*
+isort **/*.py
+pytest --cov-append --cov=banco_imobiliario tests/
+==================== test session starts ====================
+platform linux -- Python 3.8.5, pytest-5.4.3, py-1.10.0, pluggy-0.13.1
+rootdir: /desafio-banco-imobiliario, inifile: setup.cfg
+plugins: cov-2.11.1
+collected 11 items tests/test_board.py ....[ 45%]
+tests/test_player.py .....[100%]
 
+----------- coverage: platform linux, python 3.8.5-final-0 -----------
+Name                                          Stmts   Miss  Cover
+-----------------------------------------------------------------
+banco_imobiliario/__init__.py                     1      0   100%
+banco_imobiliario/board/__init__.py               0      0   100%
+banco_imobiliario/board/base.py                  28      8    71%
+banco_imobiliario/board/card_patrimony.py        11      2    82%
+banco_imobiliario/board/factory.py               18      3    83%
+banco_imobiliario/board/game_board.py            77     24    69%
+banco_imobiliario/board/game_statistics.py       14     14     0%
+banco_imobiliario/board/player_cautious.py        7      1    86%
+banco_imobiliario/board/player_demanding.py       7      0   100%
+banco_imobiliario/board/player_impulsive.py       5      0   100%
+banco_imobiliario/board/player_random.py          8      0   100%
+banco_imobiliario/config.py                       4      0   100%
+-----------------------------------------------------------------
+TOTAL                                           180     52    71%
+
+==================== 11 passed in 0.16s ====================
+make[1]: Saindo do diretório '/desafio-banco-imobiliario/src'
+```
+
+## Extra
+> comando
+```shell
+❯ make run_test_to_html
+```
+> resultado
+```shell
+make -C src run_main_test
+make[1]: Entrando no diretório '/desafio-banco-imobiliario/src'
+flake8 banco_imobiliario/*.*
+isort **/*.py
+pytest --cov-append --cov=banco_imobiliario tests/
+==================== test session starts ====================
+platform linux -- Python 3.8.5, pytest-5.4.3, py-1.10.0, pluggy-0.13.1
+rootdir: /desafio-banco-imobiliario, inifile: setup.cfg
+plugins: cov-2.11.1
+collected 11 items tests/test_board.py .....[ 45%]
+tests/test_player.py ......[100%]
+
+----------- coverage: platform linux, python 3.8.5-final-0 -----------
+Name                                          Stmts   Miss  Cover
+-----------------------------------------------------------------
+banco_imobiliario/__init__.py                     1      0   100%
+banco_imobiliario/board/__init__.py               0      0   100%
+banco_imobiliario/board/base.py                  28      8    71%
+banco_imobiliario/board/card_patrimony.py        11      2    82%
+banco_imobiliario/board/factory.py               18      3    83%
+banco_imobiliario/board/game_board.py            77     24    69%
+banco_imobiliario/board/game_statistics.py       14     14     0%
+banco_imobiliario/board/player_cautious.py        7      1    86%
+banco_imobiliario/board/player_demanding.py       7      1    86%
+banco_imobiliario/board/player_impulsive.py       5      0   100%
+banco_imobiliario/board/player_random.py          8      0   100%
+banco_imobiliario/config.py                       4      0   100%
+-----------------------------------------------------------------
+TOTAL                                           180     53    71%
+
+==================== 11 passed in 0.12s ====================
+make[1]: Saindo do diretório '/desafio-banco-imobiliario'
+make -C src run_main_test_to_html
+make[1]: Entrando no diretório '/desafio-banco-imobiliario'
+rm -rf htmlcov
+pytest --cov-report html --cov=banco_imobiliario tests/
+==================== test session starts ====================
+platform linux -- Python 3.8.5, pytest-5.4.3, py-1.10.0, pluggy-0.13.1
+rootdir: /desafio-banco-imobiliario-v1, inifile: setup.cfg
+plugins: cov-2.11.1
+collected 11 items
+tests/test_board.py .....[ 45%]
+tests/test_player.py ......[100%]
+
+----------- coverage: platform linux, python 3.8.5-final-0 -----------
+Coverage HTML written to dir htmlcov
+
+==================== 11 passed in 0.19s ====================
+make[1]: Saindo do diretório '/desafio-banco-imobiliario'
+```
