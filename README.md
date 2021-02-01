@@ -1,67 +1,91 @@
-# O Desafio
+# Desafio - Semelhante a um banco imobiliário
 
-Considere o seguinte jogo hipotético muito semelhante a Banco Imobiliário, onde várias de suas mecânicas
-foram simplificadas. Numa partida desse jogo, os jogadores se alteram em rodadas, numa ordem definida
-aleatoriamente no começo da partida. 
+## [Desafio](DESAFIO.md)
 
-Os jogadores sempre começam uma partida com saldo de 300 para
-cada um.
+### Caso precise de ajuda com os comandos
+> comando
+```shell
+❯ make help
+```
+> resultado
+```shell
+Comandos - Banco Imobiliario
+Ajuda
 
-Nesse jogo, o tabuleiro é composto por 20 propriedades em sequência. Cada propriedade tem um custo de
-venda, um valor de aluguel, um proprietário caso já estejam compradas, e seguem uma determinada ordem no
-tabuleiro. Não é possível construir hotéis e nenhuma outra melhoria sobre as propriedades do tabuleiro, por simplicidade do problema.
+uso: make <sub comando>
+Sub comandos:
+    run                                         Rodar projeto
+    pkg_install_poetry                          Instalar o gerenciador de dependencia - Poetry
+    pkg_install_dev                             Instalar dependencias no ambiente de desenvolvimento
+    pkg_install_prod                            Instalar dependencias - 'requirements.txt' no ambiente de produção
+    pkg_req_create                              Exportar arquivo 'requirements.txt'
+    pkg_req_del                                 Apagar arquivo 'requirements.txt'
+    pkg_add_dev pkg=nome_dependencia            Adicionar dependencia para desenvolvimento
+    pkg_add_prod pkg=nome_dependencia           Adicionar dependencia para produção
+    run_test                                    Rodar teste de cobertura de codigo e pytest com modular fixture
+    run_test_to_html                            Exportar teste de cobertura de codigo em uma pasta 'htmlcov'
+```
 
-No começo da sua vez, o jogador joga um dado equiprovável de 6 faces que determina quantas espaços no
-tabuleiro o jogador vai andar.
+## Instalação
+### 1º Instale o gerenciador de dependências
+> comando
+```shell
+❯ make pkg_install_poetry
+```
+> resultado
+```shell
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+Retrieving Poetry metadata
 
-Ao cair em uma propriedade sem proprietário, o jogador pode escolher entre comprar ou não a
-propriedade. Esse é a única forma pela qual uma propriedade pode ser comprada.
+# Welcome to Poetry!
 
-Ao cair em uma propriedade que tem proprietário, ele deve pagar ao proprietário o valor do aluguel da
-propriedade.
+This will download and install the latest version of Poetry,
+a dependency and package manager for Python.
 
-Ao completar uma volta no tabuleiro, o jogador ganha 100 de saldo.
+It will add the `poetry` command to Poetry's bin directory, located at:
 
-Jogadores só podem comprar propriedades caso ela não tenha dono e o jogador tenha o dinheiro da venda.
+$HOME/.poetry/bin
 
-Ao comprar uma propriedade, o jogador perde o dinheiro e ganha a posse da propriedade.
+This path will then be added to your `PATH` environment variable by
+modifying the profile file located at:
 
-Cada um dos jogadores tem uma implementação de comportamento diferente, que dita as ações que eles
-vão tomar ao longo do jogo. Mais detalhes sobre o comportamento serão explicados mais à frente.
+$HOME/.profile
 
-Um jogador que fica com saldo negativo perde o jogo, e não joga mais. Perde suas propriedades e portanto
-podem ser compradas por qualquer outro jogador.
+You can uninstall at any time by executing this script with the --uninstall option,
+and these changes will be reverted.
 
-Termina quando restar somente um jogador com saldo positivo, a qualquer momento da partida. Esse jogador
-é declarado o vencedor.
+Installing version: 1.1.4
+  - Downloading poetry-1.1.4-linux.tar.gz (57.03MB)
 
-Desejamos rodar uma simulação para decidir qual a melhor estratégia. Para isso, idealizamos uma partida
-com 4 diferentes tipos de possíveis jogadores. Os comportamentos definidos são:
+Poetry (1.1.4) is installed now. Great!
 
-1. O jogador um é impulsivo;
+To get started you need Poetry's bin directory ($HOME/.poetry/bin) in your `PATH`
+environment variable. Next time you log in this will be done
+automatically.
 
-> O jogador impulsivo compra qualquer propriedade sobre a qual ele parar.
+To configure your current shell run `source $HOME/.poetry/env`
+```
 
-2. O jogador dois é exigente;
+### 2º Instação do ambiente - Dev
+> comando
+```shell
+❯ make pkg_install_dev
+```
+> resultado
+```shell
+poetry install
+Installing dependencies from lock file
 
-> O jogador exigente compra qualquer propriedade, desde que o valor do aluguel dela seja maior do que 50.
+No dependencies to install or update
 
-3. O jogador três é cauteloso;
+Installing the current project: banco-imobiliario (0.1.0)
+poetry shell
+Spawning shell within /home/gladson/.cache/pypoetry/virtualenvs/banco-imobiliario-YHc5w1h_-py3.8
+. /home/gladson/.cache/pypoetry/virtualenvs/banco-imobiliario-YHc5w1h_-py3.8/bin/activate
 
-> O jogador cauteloso compra qualquer propriedade desde que ele tenha uma reserva de 80 saldo sobrando depois de realizada a compra.
+desafio-banco-imobiliario on  main [!⇡] is 📦 v0.1.0 via 🐍 v3.8.5 
+❯ . /home/gladson/.cache/pypoetry/virtualenvs/banco-imobiliario-YHc5w1h_-py3.8/bin/activate
+desafio-banco-imobiliario on  main [!⇡] is 📦 v0.1.0 via 🐍 v3.8.5 (banco-imobiliario-YHc5w1h_-py3.8)
+```
 
-4. O jogador quatro é aleatório;
 
-> O jogador aleatório compra a propriedade que ele parar em cima com probabilidade de 50%.
-
-Caso o jogo demore muito, como é de costume em jogos dessa natureza, o jogo termina na milésima rodada com a vitória do jogador com mais saldo. O critério de desempate é a ordem de turno dos jogadores nesta partida.
-
-## Saída
-
-Uma execução do programa proposto deve rodar 300 simulações, imprimindo no console os dados referentes
-às execuções. Esperamos encontrar nos dados as seguintes informações:
-
-* Quantas partidas terminam portime out (1000 rodadas);
-* Quantos turnos em média demora uma partida;
-* Qual a porcentagem de vitórias por comportamento dos jogadores;
-* Qual o comportamento que mais vence.
