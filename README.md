@@ -88,4 +88,26 @@ desafio-banco-imobiliario on  main [!⇡] is 📦 v0.1.0 via 🐍 v3.8.5
 desafio-banco-imobiliario on  main [!⇡] is 📦 v0.1.0 via 🐍 v3.8.5 (banco-imobiliario-YHc5w1h_-py3.8)
 ```
 
+### 3º Rodar o projeto
+> comando
+```shell
+❯ make run
+```
+> resultado
+```shell
+make -C src run_main
+make[1]: Entrando no diretório '/desafio-banco-imobiliario/src'
+python -m main
+Quantas partidas terminam por tempo esgotado(timeout): 38
+Quantos turnos em média demora uma partida: 150.1
+Qual o comportamento que mais venceu:
+        impulsive
+        venceu: 129
+Qual a porcentagem de vitórias por comportamento dos jogadores
+  *   impulsive: 43%
+  *   demanding: 28%
+  *   cautious: 23%
+  *   randomer: 5%
+make[1]: Saindo do diretório '/desafio-banco-imobiliario/src'
+```
 
