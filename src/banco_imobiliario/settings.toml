@@ -1,4 +1,3 @@
-[default]
 ENV_STRATEGY = ["impulsive", "demanding", "cautious", "randomer"]
 ENV_QUANTITY_OF_PROPERTIES = 20
 ENV_NUMBER_SIMULATION = 300
