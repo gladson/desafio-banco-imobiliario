@@ -206,5 +206,5 @@ tests/test_player.py ......[100%]
 Coverage HTML written to dir htmlcov
 
 ==================== 11 passed in 0.19s ====================
-make[1]: Saindo do diretório '/desafio-banco-imobiliario'
+make[1]: Saindo do diretório '/desafio-banco-imobiliario/src'
 ```
