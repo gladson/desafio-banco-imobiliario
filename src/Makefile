@@ -10,4 +10,4 @@ run_main_test: run_main_flake8_isort
 
 run_main_test_to_html:
 	rm -rf htmlcov
-	pytest --fixtures --cov-report html --cov=banco_imobiliario tests/
+	pytest --cov-report html --cov=banco_imobiliario tests/
