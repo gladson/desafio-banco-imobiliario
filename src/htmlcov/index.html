@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Coverage report</title>
+    <link rel="icon" sizes="32x32" href="favicon_32.png">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.ba-throttle-debounce.min.js"></script>
+    <script type="text/javascript" src="jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="jquery.hotkeys.js"></script>
+    <script type="text/javascript" src="coverage_html.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(coverage.index_ready);
+    </script>
+</head>
+<body class="indexfile">
+<div id="header">
+    <div class="content">
+        <h1>Coverage report:
+            <span class="pc_cov">69%</span>
+        </h1>
+        <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
+        <form id="filter_container">
+            <input id="filter" type="text" value="" placeholder="filter..." />
+        </form>
+    </div>
+</div>
+<div class="help_panel">
+    <img id="panel_icon" src="keybd_open.png" alt="Hide keyboard shortcuts" />
+    <p class="legend">Hot-keys on this page</p>
+    <div>
+    <p class="keyhelp">
+        <span class="key">n</span>
+        <span class="key">s</span>
+        <span class="key">m</span>
+        <span class="key">x</span>
+        <span class="key">c</span> &nbsp; change column sorting
+    </p>
+    </div>
+</div>
+<div id="index">
+    <table class="index">
+        <thead>
+            <tr class="tablehead" title="Click to sort">
+                <th class="name left headerSortDown shortkey_n">Module</th>
+                <th class="shortkey_s">statements</th>
+                <th class="shortkey_m">missing</th>
+                <th class="shortkey_x">excluded</th>
+                <th class="right shortkey_c">coverage</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr class="total">
+                <td class="name left">Total</td>
+                <td>180</td>
+                <td>55</td>
+                <td>0</td>
+                <td class="right" data-ratio="125 180">69%</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr class="file">
+                <td class="name left"><a href="banco_imobiliario___init___py.html">banco_imobiliario/__init__.py</a></td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="1 1">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="banco_imobiliario_board___init___py.html">banco_imobiliario/board/__init__.py</a></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="0 0">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="banco_imobiliario_board_base_py.html">banco_imobiliario/board/base.py</a></td>
+                <td>28</td>
+                <td>8</td>
+                <td>0</td>
+                <td class="right" data-ratio="20 28">71%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="banco_imobiliario_board_card_patrimony_py.html">banco_imobiliario/board/card_patrimony.py</a></td>
+                <td>11</td>
+                <td>2</td>
+                <td>0</td>
+                <td class="right" data-ratio="9 11">82%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="banco_imobiliario_board_factory_py.html">banco_imobiliario/board/factory.py</a></td>
+                <td>18</td>
+                <td>3</td>
+                <td>0</td>
+                <td class="right" data-ratio="15 18">83%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="banco_imobiliario_board_game_board_py.html">banco_imobiliario/board/game_board.py</a></td>
+                <td>77</td>
+                <td>24</td>
+                <td>0</td>
+                <td class="right" data-ratio="53 77">69%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="banco_imobiliario_board_game_statistics_py.html">banco_imobiliario/board/game_statistics.py</a></td>
+                <td>14</td>
+                <td>14</td>
+                <td>0</td>
+                <td class="right" data-ratio="0 14">0%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="banco_imobiliario_board_player_cautious_py.html">banco_imobiliario/board/player_cautious.py</a></td>
+                <td>7</td>
+                <td>1</td>
+                <td>0</td>
+                <td class="right" data-ratio="6 7">86%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="banco_imobiliario_board_player_demanding_py.html">banco_imobiliario/board/player_demanding.py</a></td>
+                <td>7</td>
+                <td>2</td>
+                <td>0</td>
+                <td class="right" data-ratio="5 7">71%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="banco_imobiliario_board_player_impulsive_py.html">banco_imobiliario/board/player_impulsive.py</a></td>
+                <td>5</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="5 5">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="banco_imobiliario_board_player_random_py.html">banco_imobiliario/board/player_random.py</a></td>
+                <td>8</td>
+                <td>1</td>
+                <td>0</td>
+                <td class="right" data-ratio="7 8">88%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="banco_imobiliario_config_py.html">banco_imobiliario/config.py</a></td>
+                <td>4</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="4 4">100%</td>
+            </tr>
+        </tbody>
+    </table>
+    <p id="no_rows">
+        No items found using the specified filter.
+    </p>
+</div>
+<div id="footer">
+    <div class="content">
+        <p>
+            <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.4</a>,
+            created at 2021-02-01 13:30 -0400
+        </p>
+    </div>
+</div>
+</body>
+</html>
