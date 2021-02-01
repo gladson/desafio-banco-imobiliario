@@ -6,7 +6,9 @@ help:
 	@echo
 	@echo  "uso: make <sub comando>"
 	@echo  "Sub comandos:"
+	@echo  "    run""					        ""Rodar projeto"
 	@echo  "    pkg_req_del""					""Apagar arquivo 'requirements.txt'"
+	@echo  "    pkg_install_poetry""				""Instalar o gerenciador de dependencia - Poetry"
 	@echo  "    pkg_req_create""				""Exportar arquivo 'requirements.txt'"
 	@echo  "    pkg_install_prod""				""Instalar dependencias - 'requirements.txt' no ambiente de produção"
 	@echo  "    pkg_add_dev pkg=nome_dependencia""		""Adicionar dependencia para desenvolvimento"
@@ -14,9 +16,11 @@ help:
 	@echo  "    run_test""					""Rodar teste de cobertura de codigo e pytest com modular fixture"
 	@echo  "    run_test_to_html""				""Exportar teste de cobertura de codigo em uma pasta 'htmlcov'"
 
-
 pkg_req_del:
 	rm -rf requirements.txt
+
+pkg_install_poetry:
+	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 
 pkg_req_create:
 	poetry export -f requirements.txt -o requirements.txt
@@ -40,9 +44,10 @@ pkg_info_env:
 	poetry env info
 
 run_test:
-	rm -rf ./.coverage
-	pytest --cov-append --cov=banco_imobiliario tests/
+	$(MAKE) -C src run_main_test
 
 run_test_to_html: run_test
-	rm -rf htmlcov
-	pytest --cov-report html --cov=banco_imobiliario tests/
+	$(MAKE) -C src run_main_test_to_html
+
+run:
+	$(MAKE) -C src run_main
