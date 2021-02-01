@@ -7,10 +7,11 @@ help:
 	@echo  "uso: make <sub comando>"
 	@echo  "Sub comandos:"
 	@echo  "    run""					        ""Rodar projeto"
-	@echo  "    pkg_req_del""					""Apagar arquivo 'requirements.txt'"
 	@echo  "    pkg_install_poetry""				""Instalar o gerenciador de dependencia - Poetry"
-	@echo  "    pkg_req_create""				""Exportar arquivo 'requirements.txt'"
+	@echo  "    pkg_install_dev""				""Instalar dependencias no ambiente de desenvolvimento"
 	@echo  "    pkg_install_prod""				""Instalar dependencias - 'requirements.txt' no ambiente de produção"
+	@echo  "    pkg_req_create""				""Exportar arquivo 'requirements.txt'"
+	@echo  "    pkg_req_del""					""Apagar arquivo 'requirements.txt'"
 	@echo  "    pkg_add_dev pkg=nome_dependencia""		""Adicionar dependencia para desenvolvimento"
 	@echo  "    pkg_add_prod pkg=nome_dependencia""		""Adicionar dependencia para produção"
 	@echo  "    run_test""					""Rodar teste de cobertura de codigo e pytest com modular fixture"
@@ -24,6 +25,10 @@ pkg_install_poetry:
 
 pkg_req_create:
 	poetry export -f requirements.txt -o requirements.txt
+
+pkg_install_dev:
+	poetry install
+	poetry shell
 
 pkg_install_prod: pkg_req_del pkg_req_create
 	pip install --require-hashes -r requirements.txt
