@@ -30,7 +30,7 @@ def create_board():
     board = GameBoard()
     players = [
         create_player(strategy)
-        for strategy in settings.DEFAULT.ENV_STRATEGY
+        for strategy in settings.ENV_STRATEGY
     ]
     board.players = players
     return board

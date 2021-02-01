@@ -11,7 +11,7 @@ def main():
     referentes às execuções.
     '''
     results = []
-    for index in range(int(settings.DEFAULT.ENV_NUMBER_SIMULATION)):
+    for index in range(int(settings.ENV_NUMBER_SIMULATION)):
         board = create_board()
         while board.winner is None:
             for player in board.players:

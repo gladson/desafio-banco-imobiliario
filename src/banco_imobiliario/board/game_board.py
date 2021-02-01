@@ -16,7 +16,7 @@ class GameBoard:
         self._cards = [
             Patrimony(index, None)
             for index in range(
-                int(settings.DEFAULT.ENV_QUANTITY_OF_PROPERTIES)
+                int(settings.ENV_QUANTITY_OF_PROPERTIES)
             )
         ]
 
@@ -77,13 +77,13 @@ class GameBoard:
 
     def walk(self, player, _dice=None):
         go_to_position = player.position + (_dice or self.play_dice)
-        if go_to_position >= int(settings.DEFAULT.ENV_QUANTITY_OF_PROPERTIES):
+        if go_to_position >= int(settings.ENV_QUANTITY_OF_PROPERTIES):
             '''
             Ao completar uma volta no tabuleiro,
             o jogador ganha 100 de saldo.
             '''
-            player.money += float(settings.DEFAULT.ENV_PLAYER_MONEY_ROUND)
-            go_to_position -= int(settings.DEFAULT.ENV_QUANTITY_OF_PROPERTIES)
+            player.money += float(settings.ENV_PLAYER_MONEY_ROUND)
+            go_to_position -= int(settings.ENV_QUANTITY_OF_PROPERTIES)
         player.position = go_to_position
         return go_to_position
 
@@ -96,7 +96,7 @@ class GameBoard:
         '''
         if len(self.players) == 1:
             return player
-        if int(settings.DEFAULT.ENV_TIMEOUT_ROUND) <= self.played:
+        if int(settings.ENV_TIMEOUT_ROUND) <= self.played:
             money = 0
             winner = None
             for _player in self._players:
@@ -135,5 +135,5 @@ class GameBoard:
             "money": self.winner.money,
             "played": self.played,
             "strategy": self.winner,
-            "time_out": self.played > int(settings.DEFAULT.ENV_TIMEOUT_ROUND),
+            "time_out": self.played > int(settings.ENV_TIMEOUT_ROUND),
         }

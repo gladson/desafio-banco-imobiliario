@@ -7,7 +7,7 @@ class BasePlayer(ABC):
 
     def __init__(
         self, strategy, position=0,
-        money=settings.DEFAULT.ENV_PLAYER_MONEY
+        money=settings.ENV_PLAYER_MONEY
     ):
         self.position = position
         self.money = money
